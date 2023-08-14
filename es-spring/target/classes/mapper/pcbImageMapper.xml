@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.dao.PcbImageDao">
+
+    <select id="selectNewImages" resultType="org.example.entity.PcbImage">
+        select * from pcb_image where id &lt;= (select max(id) from pcb_image) - (#{code} * 5)
+        and id &gt;= (select max(id) from pcb_image)-(#{code} * 5 + 4);
+    </select>
+</mapper>

@@ -1,0 +1,51 @@
+{
+  "mappings": {
+    "properties": {
+      "doc": {
+        "properties": {
+          "created": {
+            "type": "date"
+          },
+          "date": {
+            "type": "long"
+          },
+          "deted_file": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "production_line": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "results": {
+            "type": "nested",
+            "properties": {
+              "conf": {
+                "type": "keyword"
+              },
+              "label": {
+                "type": "keword"
+              },
+              "part": {
+                "type": "keyword"
+              },
+              "pcb": {
+                "type": "text"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+org\example\AppTest.class
+org\example\MyTest.class
+org\example\ImageTest.class
+org\example\RemoteConnection.class
+org\example\SpringDataESIndexTest.class

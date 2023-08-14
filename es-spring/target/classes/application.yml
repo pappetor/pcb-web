@@ -1,0 +1,35 @@
+server:
+  port: 9999
+spring:
+  cloud:
+    nacos:
+      server-addr: 10.100.156.27:8848
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.100.156.13:3306/pcb_defects
+  kafka:
+    bootstrap-servers: 10.100.156.33:9092
+    consumer:
+      #自动提交时间间隔
+      auto-commit-interval: 1s
+      #消费者读取一个偏移量无效的分区如何处理
+      #键的序列化方式
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #键的反序列化方式
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      #是否自动提交
+      enable-auto-commit: false
+    listener:
+      ack-mode: manual_immediate
+      concurrency: 4
+mybatis-plus:
+  mapper-locations: "classpath:/mapper/**/*.xml"
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
